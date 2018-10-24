@@ -1,0 +1,67 @@
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous">
+  </head>
+
+  <div class="dropdown">
+    <select (change)="onChange($event.target.value)">
+      <option value="">--Välj Världsdel--</option>
+      <option value="Asia">Asien</option>
+      <option value="Europe">Europa</option>
+      <option value="Africa">Afrika</option>
+      <option value="North America">Nordamerika</option>
+      <option value="South America">Sydamerika</option>
+      <option value="Oceania">Oceanien</option>
+    </select>
+  </div>
+<div class="form-group">
+    <div class="col-md-6">
+     <p> <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search Country Name" />
+    </p></div>
+  </div>
+  <div class="form-group">
+      <div class="col-md-6">
+      <p>  <input type="text" [(ngModel)]="searchGov" class="form-control" placeholder="Search Government Form" />
+      </p></div>
+    </div>
+
+<table id="head">
+  <thead>
+
+    <tr>
+
+      <th class="pointer" (click)="sort('Name')">
+        <div class="tooltip"> <span class="tooltiptext">Sortera</span>
+          Name </div> <i class="fa fa-sort"></i>
+      </th>
+      <th class="pointer" (click)="sort('Population')">
+        <div class="tooltip"> <span class="tooltiptext">Sortera</span>
+          Population </div> <i class="fa fa-sort"></i>
+      </th>
+      <th class="pointer" (click)="sort('LifeExpectancy')">
+        <div class="tooltip"> <span class="tooltiptext">Sortera</span>
+          Life Expectancy </div> <i class="fa fa-sort"></i>
+      </th>
+      <th class="pointer" (click)="sort('GovernmentForm')">
+        <div class="tooltip"> <span class="tooltiptext">Sortera</span>
+          Government Form </div> <i class="fa fa-sort"></i>
+      </th>
+      <th class="pointer" (click)="sort('HeadOfState')">
+        <div class="tooltip"> <span class="tooltiptext">Sortera</span>
+          Head of State </div> <i class="fa fa-sort"></i>
+      </th>
+    </tr>
+
+  </thead>
+  <tr *ngFor="let country of displaycountry | searchGovForm: searchGov | search: searchText | orderBy: {property: column, direction: direction}">
+
+    <td><a routerLink="/countrydetail/{{country.Code}}">{{ country.Name }}</a></td>
+    <td>{{ country.Population }}</td>
+    <td>{{ country.LifeExpectancy }}</td>
+    <td>{{ country.GovernmentForm }}</td>
+    <td>{{ country.HeadOfState }}</td>
+
+  </tr>
+  </tbody>
+</table>
+
