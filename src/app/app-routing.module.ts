@@ -4,24 +4,25 @@ import { CountryListComponent } from './country-list/country-list.component';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 
 const routes: Routes = [
-    { path: "countrylist", 
+  {
+    path: "countrylist",
     component: CountryListComponent
-    },
-    {
-        path: "",
-        redirectTo: '/countrylist',
-        pathMatch: "full",
-    },
-    {
-        path: "countrydetail/:Code",
-        component: CountryDetailComponent
-    }
+  },
+  {
+    path: "",
+    redirectTo: '/countrylist',
+    pathMatch: "full",
+  },
+  {
+    path: "countrydetail/:Code",
+    component: CountryDetailComponent
+  }
 ];
 
 @NgModule({
 
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 
-export class AppRoutingModule {}
+export class AppRoutingModule { }

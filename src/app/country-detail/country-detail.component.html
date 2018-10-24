@@ -1,7 +1,7 @@
 <h2>Country Detail</h2>
-<button (click) = "goBack()">
-    Gå tillbaka
-  </button>
+<button (click)="goBack()">
+  Gå tillbaka
+</button>
 <p></p>
 <table id="head" *ngIf="country">
   <thead>
@@ -31,36 +31,36 @@
     <td>{{country.GNP }}</td>
     <td>{{country.GovernmentForm }}</td>
     <td>{{country.HeadOfState }}</td>
-    <td *ngIf ="capital">{{ capital.Name }}</td>
+    <td *ngIf="capital">{{ capital.Name }}</td>
     <td>{{langs}}</td>
-    </tr>
-<p></p>
-  </table>
-
-  <table id = "head">
-
-<thead>
-  <th>City Name</th>
-  <th>City District</th>
-  <th>City Population</th>
-
-
-    <tr *ngFor = "let city of cities">
-    <td>{{city.Name }}</td>
-    <td>{{city.District }}</td>
-    <td>{{city.Population }}</td>
-
-
   </tr>
-</thead>
+  <p></p>
+</table>
+
+<table id="head">
+
+  <thead>
+    <th>City Name</th>
+    <th>City District</th>
+    <th>City Population</th>
+
+
+    <tr *ngFor="let city of cities">
+      <td>{{city.Name }}</td>
+      <td>{{city.District }}</td>
+      <td>{{city.Population }}</td>
+
+
+    </tr>
+  </thead>
 
 </table>
 <div>
-<img src = "./assets/img/{{country.Code}}.png" height="50%" width="50%">
+  <img src="./assets/img/{{country.Code}}.png" height="50%" width="50%">
 
-<p></p>
+  <p></p>
 </div>
 
-<button (click) = "goBack()">
+<button (click)="goBack()">
   Gå tillbaka
 </button>

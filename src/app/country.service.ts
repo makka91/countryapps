@@ -12,8 +12,5 @@ export class CountryService {
     return this.http.get('/assets/data/world.json') as Observable<any>;
   }
 
-
-
-
 }
 

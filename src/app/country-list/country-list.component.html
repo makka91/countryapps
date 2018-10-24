@@ -1,29 +1,36 @@
 <head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-      crossorigin="anonymous">
-  </head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+</head>
 
-  <div class="dropdown">
-    <select (change)="onChange($event.target.value)">
-      <option value="">--Välj Världsdel--</option>
-      <option value="Asia">Asien</option>
-      <option value="Europe">Europa</option>
-      <option value="Africa">Afrika</option>
-      <option value="North America">Nordamerika</option>
-      <option value="South America">Sydamerika</option>
-      <option value="Oceania">Oceanien</option>
-    </select>
-  </div>
+<div class="dropdown">
+  <select (change)="onChange($event.target.value)">
+    <option value="">--Välj Världsdel--</option>
+    <option value="Asia">Asien</option>
+    <option value="Europe">Europa</option>
+    <option value="Africa">Afrika</option>
+    <option value="North America">Nordamerika</option>
+    <option value="South America">Sydamerika</option>
+    <option value="Oceania">Oceanien</option>
+  </select>
+</div>
 <div class="form-group">
-    <div class="col-md-6">
-     <p> <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search Country Name" />
-    </p></div>
+  <div class="col-md-6">
+    <p> <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search Country Name" />
+    </p>
   </div>
-  <div class="form-group">
-      <div class="col-md-6">
-      <p>  <input type="text" [(ngModel)]="searchGov" class="form-control" placeholder="Search Government Form" />
-      </p></div>
-    </div>
+</div>
+<div class="form-group">
+  <div class="col-md-6">
+    <p> <input type="text" [(ngModel)]="searchGov" class="form-control" placeholder="Search Government Form" />
+    </p>
+  </div>
+</div>
+
+<input type="number" [(ngModel)]="greaterThan" placeholder="Search Pop Greater Than">
+<p></p>
+<input type="number" [(ngModel)]="lesserThan" placeholder="Search Pop Lesser Than">
+<p></p>
 
 <table id="head">
   <thead>
@@ -53,7 +60,7 @@
     </tr>
 
   </thead>
-  <tr *ngFor="let country of displaycountry | searchGovForm: searchGov | search: searchText | orderBy: {property: column, direction: direction}">
+  <tr *ngFor="let country of displaycountry | greaterPop: greaterThan | lesserPop: lesserThan | searchGovForm: searchGov | search: searchText | orderBy: {property: column, direction: direction}">
 
     <td><a routerLink="/countrydetail/{{country.Code}}">{{ country.Name }}</a></td>
     <td>{{ country.Population }}</td>
@@ -64,4 +71,3 @@
   </tr>
   </tbody>
 </table>
-

@@ -11,6 +11,9 @@ import { CountryService } from './country.service';
 import { OrderByPipe } from './orderBy.pipe';
 import { SearchPipe } from './search.pipe';
 import { SearchGovForm } from './searchGovForm.pipe';
+import { GreaterPopPipe } from './greaterPop.pipe';
+import { LesserPopPipe } from './lesserPop.pipe'
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { SearchGovForm } from './searchGovForm.pipe';
     CountryDetailComponent,
     OrderByPipe,
     SearchPipe,
-    SearchGovForm
+    SearchGovForm,
+    GreaterPopPipe,
+    LesserPopPipe
   ],
   imports: [
     BrowserModule,

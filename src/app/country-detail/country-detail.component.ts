@@ -26,7 +26,7 @@ export class CountryDetailComponent implements OnInit {
     let countryID = this.route.snapshot.paramMap.get('Code');
     this.countryService.getWorld().subscribe((world: any) => {
       this.country = world.Country.filter((country: ICountry) => country.Code == countryID)[0];
-      
+
       this.capital = world.City.filter((city: City) => this.country.Capital == city.ID)[0];
 
       this.cities = world.City.filter((city: City) => city.CountryCode == countryID);

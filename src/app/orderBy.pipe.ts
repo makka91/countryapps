@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class OrderByPipe implements PipeTransform {
 
   transform(records: Array<any>, args?: any): any {
-      records = records || [];
+    records = records || [];
     return records.sort((a, b) => {
       var x, y;
       if (!isNaN(a[args.property])) {
